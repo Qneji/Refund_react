@@ -14,7 +14,7 @@ export function Upload({ filename = null, ...rest}: Props){
       <div className="w-full h-12 flex items-center rounded-lg border border-gray-300 text-sm text-gray-100 bg-transparent outline-none">
         <input type="file" id="upload" className="hidden" {...rest} />
 
-        <span className="text-xl text-gray-100 flex-1 pl-4">{filename ?? "Selecione o arquivo"}</span>
+        <span className="text-sm text-gray-100 flex-1 pl-4">{filename ?? "Selecione o arquivo"}</span>
         
         <label 
             htmlFor="upload" 
