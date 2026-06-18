@@ -39,7 +39,7 @@ export function Dashboard() {
         </Button>
       </form>
 
-      <div>
+      <div className="mt-6 flex flex-col gap-4 max-h-85 overflow-y-scroll">
         <RefundItem data={REFUND_EXAMPLE} />
       </div>
     </div>
