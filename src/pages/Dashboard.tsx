@@ -8,6 +8,7 @@ import { Input } from "../components/Input"
 import { Button } from "../components/Button"
 import { Pagination } from "../components/Pagination" 
 import { RefundItem } from "../components/RefundItem"
+import type { RefundItemProps } from "../components/RefundItem"
 
 const REFUND_EXAMPLE = {
   id: "123",
@@ -21,6 +22,7 @@ export function Dashboard() {
   const [name, setName] = useState("")
   const [page, setPage] = useState(1)
   const [totalOfPage, setTotalOfPage] = useState(10)
+  const [refund, setRefund] = useState<RefundItemProps[]>([REFUND_EXAMPLE])
 
   function fetchRefunds(e: React.SyntheticEvent) {
     e.preventDefault()
@@ -57,8 +59,10 @@ export function Dashboard() {
         </Button>
       </form>
 
-      <div className="mt-6 flex flex-col gap-4 max-h-85 overflow-y-scroll">
-        <RefundItem data={REFUND_EXAMPLE} />
+      <div className="my-6 flex flex-col gap-4 max-h-85 overflow-y-scroll">
+        {refund.map((item) => (
+          <RefundItem key={item.id} data={item} href={`/refund/${item.id}`} />
+        ))}
       </div>
 
       <Pagination 
